@@ -4,12 +4,6 @@ import app from "./src/app.js";
 import connectDB from "./src/db/db.js";
 
 
-app.get('/', (req, res) => {
-    res.json({
-        msg: "hello from server"
-    })
-});
-
 connectDB();
 
 app.listen(3000, () => {
