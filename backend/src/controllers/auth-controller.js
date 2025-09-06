@@ -110,7 +110,7 @@ async function registerFoodPartner(req, res) {
 
     const accountAlreadyExists = await foodPartnerModel.findOne({ email });
 
-    if(email) {
+    if(accountAlreadyExists) {
         return res.status(400).json({
             msg: "Food partner account already exists"
         })
