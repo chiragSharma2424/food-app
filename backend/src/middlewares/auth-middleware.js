@@ -14,7 +14,15 @@ const authFoodPartnerMiddleware = async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        const foodPartner = await foodPartnerModel.findById(decoded.id);
+
+        req.foodPartner = foodPartner;
+
+        next();
     } catch(err) {
-        console.log(`error in middleware ${err}`);
+        console.log(`error in middleware ${err}`); 
     }
 }
+
+export default authFoodPartnerMiddleware
