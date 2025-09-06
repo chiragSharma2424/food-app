@@ -50,4 +50,4 @@ async function loginUser(req, res) {
     
 }
 
-export { registerUser, }
+export { registerUser, loginUser, }
