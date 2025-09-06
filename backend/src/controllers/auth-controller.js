@@ -47,7 +47,40 @@ async function registerUser(req, res) {
 }
 
 async function loginUser(req, res) {
-    
+    const { email, password } = req.body;
+
+    const userExists = await userModel.findOne({
+        email
+    });
+
+    if(!userExists) {
+        return res.status(400).json({
+            msg: "user not found"
+        })
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, userExists.password);
+
+    if(!isPasswordValid) {
+        return res.status(400).json({
+            msg: "Invalid password"
+        })
+    }
+
+    const token = jwt.sign({
+        id: userExists._id
+    }, mysecretkey);
+
+    res.cookie('token', token);
+
+    return res.status(200).json({
+        msg: "user loggedin successfully",
+        user: {
+            id: userExists._id,
+            email: userExists.email,
+            fullName: userExists.fullName
+        }
+    });
 }
 
 export { registerUser, loginUser, }
