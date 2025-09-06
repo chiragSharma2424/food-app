@@ -1,7 +1,8 @@
 import userModel from "../models/user-model.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-const mysecretkey = 'secret-key-24'
+import dotenv from 'dotenv';
+dotenv.config();
 
 async function registerUser(req, res) {
     const { fullName, email, password } = req.body;
@@ -32,7 +33,7 @@ async function registerUser(req, res) {
 
     const token = jwt.sign({
         id: user._id
-    }, mysecretkey);
+    }, process.env.JWT_SECRET);
 
     res.cookie("token", token);
 
@@ -45,6 +46,8 @@ async function registerUser(req, res) {
         }
     })
 }
+
+
 
 async function loginUser(req, res) {
     const { email, password } = req.body;
@@ -69,7 +72,7 @@ async function loginUser(req, res) {
 
     const token = jwt.sign({
         id: userExists._id
-    }, mysecretkey);
+    }, process.env.JWT_SECRET);
 
     res.cookie('token', token);
 
