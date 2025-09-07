@@ -13,9 +13,32 @@ async function createFood(req, res) {
 
     const fileUploadResult = await uploadFile(req.file.buffer, uuid());
 
-    console.log(fileUploadResult);
+    // console.log(fileUploadResult);
 
-    res.send("food item created, imagekit");
+    const foodItem = await foodModel.create({
+        name: req.body.name,
+        description: req.body.description,
+        video: fileUploadResult.url,
+        foodPartner: req.foodPartner._id
+    })
+
+    return res.status(201).json({
+        msg: "Food created successfully",
+        food: foodItem
+    });
 }
 
-export { createFood }
+
+
+async function getFoodItems(req, res) {
+    const foodItems = await foodModel.find({
+
+    });
+
+    return res.status(200).json({
+        msg: "Food Items fetched successfully",
+        foodItems
+    })
+}
+
+export { createFood, getFoodItems }

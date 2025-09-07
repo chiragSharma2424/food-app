@@ -1,7 +1,7 @@
 import express from 'express';
 import multer from 'multer';
-import { createFood } from '../controllers/food-controller.js';
-import { authFoodPartnerMiddleware } from '../middlewares/auth-middleware.js';
+import { createFood, getFoodItems } from '../controllers/food-controller.js';
+import { authFoodPartnerMiddleware, userMiddleware } from '../middlewares/auth-middleware.js';
 const foodRouter = express.Router();
 
 // express server cant read any type of file wihch are coming from frontend
@@ -26,5 +26,6 @@ const upload = multer({
 // /api/food/
 
 foodRouter.post('/', authFoodPartnerMiddleware, upload.single("video"), createFood);
+foodRouter.get('/', userMiddleware, getFoodItems);
 
 export default foodRouter;
