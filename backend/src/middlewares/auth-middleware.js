@@ -21,8 +21,14 @@ const authFoodPartnerMiddleware = async (req, res, next) => {
 
         next();
     } catch(err) {
-        console.log(`error in middleware ${err}`); 
+        console.log(`error in middleware ${err}`);
+        
+        return res.status(401).json({
+            msg: "Invalid token"
+        });
     }
 }
 
-export default authFoodPartnerMiddleware
+export {
+    authFoodPartnerMiddleware,
+}
