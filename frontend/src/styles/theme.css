@@ -1,0 +1,25 @@
+/* Centralized Theme Variables */
+:root {
+  --font-family: "Inter", sans-serif;
+  --border-radius: 12px;
+  --spacing: 1rem;
+
+  /* Light */
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #f8f9fa;
+  --primary-color: #4f46e5;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e4e4e4;
+    --card-bg: #1e1e1e;
+    --primary-color: #818cf8;
+    --input-bg: #1c1c1c;
+    --input-border: #333;
+  }
+}
