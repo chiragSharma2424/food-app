@@ -1,15 +1,45 @@
 export default function UserRegister() {
   return (
-    <div className="container">
-      <h1>Create Account</h1>
-      <form>
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Register</button>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4">
+      <h1 className="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">
+        Create Account
+      </h1>
+
+      <form className="w-full max-w-md flex flex-col space-y-4">
+        <input
+          type="text"
+          placeholder="Full Name"
+          required
+          className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+
+        <button
+          type="submit"
+          className="px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200"
+        >
+          Register
+        </button>
       </form>
-      <div className="link">
-        Already have an account? <a href="/login">Login</a>
+
+      <div className="text-sm mt-6">
+        Already have an account?{" "}
+        <a href="/login" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          Login
+        </a>
       </div>
     </div>
   );
