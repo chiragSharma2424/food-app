@@ -1,5 +1,3 @@
-import FoodPartnerRegister from "./FoodPartnerRegister";
-
 function FoodPartnerLogin() {
   return (
     <div className="min-h-screen flex">
@@ -31,9 +29,10 @@ function FoodPartnerLogin() {
             </button>
           </form>
 
+                 
           <div className="text-sm mt-6 text-center">
             New partner?{" "}
-            <a href="/partner/register" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          <a href="/food-partner/login" className="text-indigo-600 dark:text-indigo-400 hover:underline">
               Register here
             </a>
           </div>
@@ -43,4 +42,4 @@ function FoodPartnerLogin() {
   );
 }
 
-export default FoodPartnerRegister;
+export default FoodPartnerLogin;

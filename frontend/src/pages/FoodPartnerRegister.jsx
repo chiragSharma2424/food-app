@@ -32,7 +32,7 @@ function FoodPartnerRegister() {
 
         <div className="text-sm mt-6 text-center">
           Already a partner?{" "}
-          <a href="/partner/login" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          <a href="/food-partner/login" className="text-indigo-600 dark:text-indigo-400 hover:underline">
             Login here
           </a>
         </div>
