@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 function FoodPartnerLogin() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen flex">
 
@@ -32,7 +35,9 @@ function FoodPartnerLogin() {
                  
           <div className="text-sm mt-6 text-center">
             New partner?{" "}
-          <a href="/food-partner/login" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          <a href="" className="text-indigo-600 dark:text-indigo-400 hover:underline" onClick={() => {
+            navigate('/food-partner/register')
+          }}>
               Register here
             </a>
           </div>

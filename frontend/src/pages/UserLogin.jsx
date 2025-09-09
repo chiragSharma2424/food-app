@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 function UserLogin() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen flex items-center justify-center bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-2xl shadow-md w-full max-w-md">
@@ -19,7 +22,9 @@ function UserLogin() {
         
         <div className="text-center text-sm mt-4">
           Don’t have an account?{" "}
-          <a href="/register" className="text-indigo-600 dark:text-indigo-400 hover:underline">
+          <a href="" className="text-indigo-600 dark:text-indigo-400 hover:underline" onClick={() => {
+            navigate('/user/register');
+          }}>
             Register
           </a>
         </div>
