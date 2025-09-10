@@ -99,8 +99,10 @@ function logoutUser(req, res) {
 
 // controllers for food partner
 
+// food partner register
+
 async function registerFoodPartner(req, res) {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone, address, contactName } = req.body;
 
     if(!name || !email || !password) {
         return res.status(400).json({
@@ -121,7 +123,10 @@ async function registerFoodPartner(req, res) {
     const foodPartner = await foodPartnerModel.create({
         name: name,
         email: email,
-        password: hashPassword
+        password: hashPassword,
+        phone: phone,
+        address: address,
+        contactName: contactName
     });
 
     const token = jwt.sign({
@@ -136,10 +141,16 @@ async function registerFoodPartner(req, res) {
         foodPartner: {
             id: foodPartner._id,
             email: foodPartner.email,
-            name: foodPartner.name
+            name: foodPartner.name,
+            phone: phone,
+            contactName: contactName,
+            address: address
         }
     })
 }
+
+
+// food partner login
 
 async function loginFoodPartner(req, res) {
     const { email, password } = req.body;
