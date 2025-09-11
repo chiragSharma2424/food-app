@@ -13,15 +13,19 @@ function UserRegister() {
       fullName,
       email,
       password
-    });
+    }).then((resp) => {
+      return resp.json();
+    }).then((data) => {
+      console.log(data);
+    })
   }
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4">
       <h1 className="text-3xl font-bold mb-8 text-indigo-600 dark:text-indigo-400">
-        Create Account
+        Create Account``
       </h1>
 
-      <form className="w-full max-w-md flex flex-col space-y-4">
+      <div className="w-full max-w-md flex flex-col space-y-4">
         <input type="text" placeholder="Full Name" required id='fname'
            onChange={(e) => {
             setFullName(e.target.value);
@@ -40,12 +44,12 @@ function UserRegister() {
            }}
           className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
 
-        <button type="submit"
+        <button  onClick={userRegister}
           className="px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200">
           Register
         </button>
 
-      </form>
+        </div>
 
       <div className="text-sm mt-6">
         Already have an account?{" "}

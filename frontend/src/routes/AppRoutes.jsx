@@ -3,11 +3,13 @@ import UserRegister from '../pages/UserRegister';
 import UserLogin from '../pages/UserLogin';
 import FoodPartnerLogin from '../pages/FoodPartnerLogin';
 import FoodPartnerRegister from '../pages/FoodPartnerRegister';
+import HomePage from '../pages/HomePage';
 
 function AppRoutes() {
   return (
     <Router>
         <Routes>
+            <Route path='/' element={<HomePage />} />
             <Route path='/user/register' element={<UserRegister />} />
             <Route path='/user/login' element={<UserLogin />} />
             <Route path='/food-partner/register' element={<FoodPartnerRegister />} />
