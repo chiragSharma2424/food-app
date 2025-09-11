@@ -1,7 +1,16 @@
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { useState } from 'react';
 
 function FoodPartnerRegister() {
   const navigate = useNavigate();
+  const [businessName, setBusinessName] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
       <div className="w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10">
@@ -10,11 +19,11 @@ function FoodPartnerRegister() {
         </h1>
 
 
-        <form className="flex flex-col space-y-5">
-          <input type="text" placeholder="Restaurant Name" required
+        <div className="flex flex-col space-y-5">
+          <input type="text" placeholder="Business Name" required
             className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
 
-          <input type="text" placeholder="Owner Full Name" required
+          <input type="text" placeholder="Contact Name" required
             className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
 
           <input type="tel" placeholder="Phone Number" required
@@ -26,11 +35,15 @@ function FoodPartnerRegister() {
           <input type="password" placeholder="Password" required
             className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
 
-          <button type="submit"
+            <input type="password" placeholder="Address" required
+            className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+
+
+          <button 
             className="w-full px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200">
             Register
           </button>
-        </form>
+        </div>
 
 
         <div className="text-sm mt-6 text-center">

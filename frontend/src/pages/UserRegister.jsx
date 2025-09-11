@@ -13,10 +13,12 @@ function UserRegister() {
       fullName,
       email,
       password
+    }, {
+      // it will save token in cookies
+      withCredentials: true
     }).then((resp) => {
-      return resp.json();
-    }).then((data) => {
-      console.log(data);
+      console.log(resp.data);
+      navigate('/');
     })
   }
   return (
