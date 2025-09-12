@@ -42,7 +42,10 @@ function FoodPartnerLogin() {
                 axios.post('http://localhost:3000/api/food-partner/login', {
                   email,
                   password
-                }, { withCredentials: true });
+                }, { withCredentials: true }).then((res) => {
+                  console.log(res.data);
+                  navigate('/create-food');
+                })
               }}
               className="w-full px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200">
               Login
