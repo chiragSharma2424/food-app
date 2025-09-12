@@ -1,6 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+
 
 function FoodPartnerLogin() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   return (
     <div className="min-h-screen flex">
@@ -19,18 +24,30 @@ function FoodPartnerLogin() {
             Food Partner Login
           </h2>
 
-          <form className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4">
             <input type="email" placeholder="Business Email" required
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
 
             <input type="password"placeholder="Password" required 
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
               className="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
 
-            <button type="submit"
+            <button
+               onClick={() => {
+                axios.post('http://localhost:3000/api/food-partner/login', {
+                  email,
+                  password
+                }, { withCredentials: true });
+              }}
               className="w-full px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200">
               Login
             </button>
-          </form>
+          </div>
 
                  
           <div className="text-sm mt-6 text-center">
