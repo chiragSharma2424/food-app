@@ -15,7 +15,7 @@ function FoodPartnerRegister() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
       <div className="w-full max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10">
         <h1 className="text-3xl font-semibold text-center mb-8 text-gray-900 dark:text-gray-100">
-          Partner Registration
+          Partner sign up
         </h1>
 
 
@@ -61,7 +61,7 @@ function FoodPartnerRegister() {
             className="w-full px-4 py-3 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition duration-200"
              onClick={() => {
               axios.post('http://localhost:3000/api/auth/food-partner/register', {
-                businessName,
+                name: businessName,
                 contactName,
                 phone,
                 email,
