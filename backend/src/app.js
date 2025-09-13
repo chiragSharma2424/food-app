@@ -6,6 +6,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import router from './routes/auth-routes.js';
 import foodRouter from './routes/food-routes.js';
+import router2 from './routes/food-partner-routes.js';
 
 const app = express();
 app.use(express.json());
@@ -24,5 +25,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', router);
 app.use('/api/food', foodRouter);
+app.use('/api/food-partner', router2)
 
 export default app;
